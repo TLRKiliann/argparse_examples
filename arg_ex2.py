@@ -6,10 +6,11 @@
 Use :
 python3 arg_ex2.py 4
 python3 arg_ex2.py -h (or --help)
-python3 arg_ex2.py four (for seeing message)
+python3 arg_ex2.py four (for seeing message and prog stop)
 """
 
 import argparse
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("square", help="display a square of a given number",
