@@ -25,4 +25,4 @@ if args.ip:
 elif args.tab:
     print(call(["route"]))
 else:
-    print("Neither is taken into account !!!")
+    print("Neither argument is taken into account !!!")
