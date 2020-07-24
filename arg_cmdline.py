@@ -6,9 +6,9 @@ from subprocess import call
 
 """
 Use :
-python3 arg_func.py -i ip
-python3 arg_func.py -t tab
-python3 arg_func.py
+python3 arg_cmdline.py -i ip
+python3 arg_cmdline.py -t tab
+python3 arg_cmdline.py
 """
 
 parser = argparse.ArgumentParser("Description : To launch ifconfig or route -n")
