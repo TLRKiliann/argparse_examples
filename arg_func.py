@@ -4,7 +4,12 @@
 import argparse
 from subprocess import call
 
-#choice = input("Choice to launch ifconfig or route ? : ")
+"""
+Use :
+python3 arg_func.py -i ip
+python3 arg_func.py -t tab
+python3 arg_func.py
+"""
 
 parser = argparse.ArgumentParser("Description : To launch ifconfig or route -n")
 parser.add_argument("-i", "--ip", help="Show me ifconfig")
