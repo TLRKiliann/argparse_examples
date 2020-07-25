@@ -11,7 +11,7 @@ python3 arg_cmdline.py -t tab
 python3 arg_cmdline.py
 """
 
-parser = argparse.ArgumentParser("Description : To launch ifconfig or route -n")
+parser = argparse.ArgumentParser(description = "To launch ifconfig or route -n")
 parser.add_argument("-i", "--ip", help="Show me ifconfig")
 parser.add_argument("-t", "--tab", help="Show me my route table")
 

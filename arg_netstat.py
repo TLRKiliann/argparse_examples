@@ -6,15 +6,15 @@ from subprocess import call
 
 """
 Use :
-python3 arg_func.py -e tcp
-python3 arg_func.py -ep
-python3 arg_func.py -u udp
-python3 arg_func.py -uudport
-python3 arg_func.py -ep -uudport
+python3 arg_netstat.py -e tcp
+python3 arg_netstat.py -ep
+python3 arg_netstat.py -u udp
+python3 arg_netstat.py -uudport
+python3 arg_netstat.py -ep -uudport
 
 """
 
-parser = argparse.ArgumentParser("Description : To launch netstat with options")
+parser = argparse.ArgumentParser(description = "To launch netstat with options")
 parser.add_argument("-e", "--established", help="Display tcp connection established")
 parser.add_argument("-p", "--port", help="Display tcp connection established and port")
 parser.add_argument("-u", "--udpconn", help="Display udp connection established")
