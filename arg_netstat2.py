@@ -21,31 +21,35 @@ python3 arg_netstat2.py -t netstat
 python3 arg_netstat2.py -t rte
 """
 
-parser = argparse.ArgumentParser(description = "To launch netstat with options")
-parser.add_argument("-e", "--established", help="Display tcp connection established")
-parser.add_argument("--tcport", help="Display tcp connection established and port")
-parser.add_argument("-u", "--udpconn", help="Display udp connection established")
-parser.add_argument("--udport", help="Display udp connection established and port")
-parser.add_argument("-t", "--tab", help="Show route table")
 
-args = parser.parse_args()
+def main():
+    tcp = args.established
+    udp = args.udpconn
+    udp_port = args.udport
+    port = args.tcport
+    rte = args.tab
 
-tcp = args.established
-if args.established:
-    call(["netstat", "-ante"])
 
-udp = args.udpconn
-if args.udpconn:
-    call(["netstat", "-aune"])
+if __name__=='__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-e", "--established", help="Display tcp connection established")
+    parser.add_argument("--tcport", help="Display tcp connection established and port")
+    parser.add_argument("-u", "--udpconn", help="Display udp connection established")
+    parser.add_argument("--udport", help="Display udp connection established and port")
+    parser.add_argument("-t", "--tab", help="Show route table")
+    args = parser.parse_args()
 
-udp_port = args.udport
-if args.udport:
-    call(["netstat", "-paune"]) 
+    if args.established:
+        call(["netstat", "-ante"])
 
-port = args.tcport
-if args.tcport:
-    call(["netstat", "-pante"]) 
+    if args.udpconn:
+        call(["netstat", "-aune"])
 
-rte = args.tab
-if args.tab:
-    call(["netstat", "-r"])
+    if args.udport:
+        call(["netstat", "-paune"]) 
+
+    if args.tcport:
+        call(["netstat", "-pante"]) 
+
+    if args.tab:
+        call(["netstat", "-r"])
