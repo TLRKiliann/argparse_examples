@@ -6,6 +6,12 @@ import argparse
 
 
 # * nargs expects 0 or more arguments
+"""
+Use : 
+python3 arg_multi.py
+python3 arg_multi.py 2
+python3 arg_multi.py 2 4
+"""
 
 parser = argparse.ArgumentParser()
 parser.add_argument('num', type=int, nargs='*')
