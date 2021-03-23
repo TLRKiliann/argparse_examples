@@ -26,7 +26,7 @@ def main():
     tcp = args.established
     udp = args.udpconn
     udp_port = args.udport
-    port = args.tcport
+    tport = args.tcport
     rte = args.tab
 
 
