@@ -7,11 +7,12 @@ from subprocess import call
 """
 Use :
 python3 arg_netstat.py -e tcp
-python3 arg_netstat.py -ep
+python3 arg_netstat.py -established
+python3 arg_netstat.py -port
 python3 arg_netstat.py -u udp
-python3 arg_netstat.py -uudport
-python3 arg_netstat.py -ep -uudport
-python3 arg_netstat.py -pute
+python3 arg_netstat.py -udport
+python3 arg_netstat.py -table
+python3 arg_netstat.py -t route
 
 """
 
@@ -21,15 +22,15 @@ parser.add_argument("-e", "--established", help="Display tcp connection establis
 parser.add_argument("-p", "--port", help="Display tcp connection established and port")
 parser.add_argument("-u", "--udpconn", help="Display udp connection established")
 parser.add_argument("--udport", help="Display udp connection established and port")
-parser.add_argument("-rte", "--table", help="Show route table")
+parser.add_argument("-t", "--table", help="Show route table")
 
 args = parser.parse_args()
 
 # args
 tcp = args.established
+port = args.port
 udp = args.udpconn
 udp_port = args.udport
-port = args.port
 route = args.table
 
 if args.established:
