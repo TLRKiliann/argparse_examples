@@ -7,49 +7,47 @@ from subprocess import call
 """
 Use :
 python3 arg_netstat2.py --help
-python3 arg_netstat2.py -e tcp
-python3 arg_netstat2.py -e netstat
-python3 arg_netstat2.py -ep
-python3 arg_netstat2.py -e tcport
+python3 arg_netstat2.py -t etcp
+
+python3 arg_netstat2.py -udpconn
 python3 arg_netstat2.py -u udp
-python3 arg_netstat2.py -u netstat
-python3 arg_netstat2.py -u udport
-python3 arg_netstat2.py -u netstat
-python3 arg_netstat2.py -ep -udport
-python3 arg_netstat2.py -t tab
-python3 arg_netstat2.py -t netstat
-python3 arg_netstat2.py -t rte
+
+python3 arg_netstat2.py -info
+python3 arg_netstat2.py -i info
+
+python3 arg_netstat2.py -r tab
+python3 arg_netstat2.py -r netstat
 """
 
 
 def main():
-    tcp = args.established
+    tcp = args.etcp
+    tport = args.alltcp
     udp = args.udpconn
-    udp_port = args.udport
-    tport = args.tcport
+    man = args.info
     rte = args.tab
 
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("-e", "--established", help="Display tcp connection established")
-    parser.add_argument("--tcport", help="Display tcp connection established and port")
+    parser.add_argument("-e", "--etcp", help="Display tcp connection established")
+    parser.add_argument("-t", "--alltcp", help="Display tcp connection established and port")
     parser.add_argument("-u", "--udpconn", help="Display udp connection established")
-    parser.add_argument("--udport", help="Display udp connection established and port")
-    parser.add_argument("-t", "--tab", help="Show route table")
+    parser.add_argument("-i", "--info", help="Display man netstat - help")
+    parser.add_argument("-r", "--tab", help="Show route table")
     args = parser.parse_args()
 
-    if args.established:
+    if args.etcp:
         call(["netstat", "-ante"])
+
+    if args.alltcp:
+        call(["netstat", "-te"])
 
     if args.udpconn:
         call(["netstat", "-aune"])
 
-    if args.udport:
-        call(["netstat", "-paune"]) 
-
-    if args.tcport:
-        call(["netstat", "-pante"]) 
+    if args.info:
+        call(["man", "netstat"])
 
     if args.tab:
         call(["netstat", "-r"])
