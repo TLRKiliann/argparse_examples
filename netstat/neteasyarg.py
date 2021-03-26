@@ -20,12 +20,12 @@ args = parser.parse_args()
 if args.established == 'nt':
     call(["netstat", "-ante"])
 elif args.established == 'nu':
-	call(["netstat", "-anue"])
+    call(["netstat", "-anue"])
 elif args.established == 'sst':
-	call(["ss", "-nlt"])
+    call(["ss", "-nlt"])
 elif args.established == 'ssu':
-	call(["ss", "-nlu"])
+    call(["ss", "-nlu"])
 elif args.established == 'nr':
-	call(["netstat", "-r"])
+    call(["netstat", "-r"])
 else:
-	print("Use one of following options : nt - nu - sst - ssu -r")
+    print("Use one of following options : nt - nu - sst - ssu -r")
