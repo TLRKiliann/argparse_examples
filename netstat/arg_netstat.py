@@ -5,6 +5,7 @@ import argparse
 from subprocess import call
 
 """
+For example with too many args
 Use :
 python3 arg_netstat.py -tsoc tcp
 python3 arg_netstat.py --tsocket tcp
