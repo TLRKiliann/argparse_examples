@@ -5,14 +5,15 @@ import argparse
 from subprocess import call
 
 """
-Use 2 prog :
-netstat
-ss
+Use cmd :
+python3 neteasyarg.py -nt
+python3 neteasyarg.py -nu
+...
 """
 
 # Options
 parser = argparse.ArgumentParser(description = "Quick help to launch netstat with options :")
-parser.add_argument("established", help="Display tcp connection established")
+parser.add_argument("established", help="Display tcp/udp connections established")
 
 args = parser.parse_args()
 
@@ -27,4 +28,4 @@ elif args.established == 'ssu':
 elif args.established == 'nr':
 	call(["netstat", "-r"])
 else:
-	print("Nothing to display...")
+	print("Use one of following options : nt - nu - sst - ssu -r")

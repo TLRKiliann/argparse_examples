@@ -6,44 +6,38 @@ from subprocess import call
 
 """
 Use :
-python3 arg_netstat.py -e tcp
-python3 arg_netstat.py -established
-python3 arg_netstat.py -port
-python3 arg_netstat.py -u udp
-python3 arg_netstat.py -udport
-python3 arg_netstat.py -table
-python3 arg_netstat.py -t route
+python3 arg_netstat.py -tsoc tcp
+python3 arg_netstat.py --tsocket tcp
 
+python3 arg_netstat.py -usoc udp
+python3 arg_netstat.py --usocket udp
+
+python3 arg_netstat.py -t r
+python3 arg_netstat.py --tab r
 """
 
 # Options
-parser = argparse.ArgumentParser(description = "Quick help to launch netstat with options :")
-parser.add_argument("-e", "--established", help="Display tcp connection established")
-parser.add_argument("-p", "--port", help="Display tcp connection established and port")
-parser.add_argument("-u", "--udpconn", help="Display udp connection established")
-parser.add_argument("--udport", help="Display udp connection established and port")
-parser.add_argument("-t", "--table", help="Show route table")
+parser = argparse.ArgumentParser(description = "Quick help to "\
+	"launch netstat with options :")
+parser.add_argument("-tsoc", "--tsocket", dest='tsox',
+	help="Display tcp connection established")
+parser.add_argument("-usoc", "--usocket", dest='usox',
+	help="Display tcp connection established and port")
+parser.add_argument("-t", "--tab", dest="table",
+	help="Show route table")
 
 args = parser.parse_args()
 
 # args
-tcp = args.established
-port = args.port
-udp = args.udpconn
-udp_port = args.udport
+tcpsoc = args.tsox
+udpsoc = args.usox
 route = args.table
 
-if args.established:
-    call(["netstat", "-ante"])
+if args.tsox=='tcp':
+    call(["netstat", "-pante"])
 
-if args.udpconn:
-    call(["netstat", "-aune"]) 
-
-if args.udport:
+if args.usox=='udp':
     call(["netstat", "-paune"]) 
 
-if args.port:
-    call(["netstat", "-pante"]) 
-
-if args.table:
+if args.table=='r':
     call(["netstat", "-r"])

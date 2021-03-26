@@ -6,8 +6,8 @@ from subprocess import call
 
 """
 Use :
-python3 arg_cmdline.py -i ip
-python3 arg_cmdline.py -t tab
+python3 arg_cmdline.py -ip
+python3 arg_cmdline.py -tab
 python3 arg_cmdline.py
 """
 
